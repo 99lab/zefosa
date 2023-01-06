@@ -112,11 +112,11 @@ mount -t vfat $(echo $DISK | cut -f1 -d\ )-part1 /mnt/boot/efi
 
 dnf -y install /root/refind.rpm
 
-wget -c https://github.com/zbm-dev/zfsbootmenu/releases/download/v2.1.0/zfsbootmenu-release-x86_64-v2.1.0.tar.gz
+wget -c https://github.com/zbm-dev/zfsbootmenu/releases/download/v2.1.0/zfsbootmenu-release-x86_64-v2.1.0.tar.gz -O /root/zbm.tgz
 
 mkdir -p /boot/efi/EFI/zbm
 
-tar -xf /root/zfsbootmenu-release-x86_64-v2.1.0.tar.gz -C /boot/efi/EFI/zbm --strip=1 --no-same-owner
+tar -xf /root/zbm.tgz -C /boot/efi/EFI/zbm --strip=1 --no-same-owner
 
 echo "\"Boot default\"  \"zfsbootmenu:POOL=rpool zbm.import_policy=hostid zbm.set_hostid zbm.timeout=5 ro quiet loglevel=0\"" >> /boot/efi/EFI/zbm/refind_linux.conf
 echo "\"Boot to menu\"  \"zfsbootmenu:POOL=rpool zbm.import_policy=hostid zbm.set_hostid zbm.show ro quiet loglevel=0\"" >> /boot/efi/EFI/zbm/refind_linux.conf
