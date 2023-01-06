@@ -23,3 +23,8 @@ dnf install -y https://dl.fedoraproject.org/pub/fedora/linux/releases/$(source /
 dnf install -y zfs
 
 modprobe zfs
+
+DISK=(lsblk -pe 252 | sed -n '/disk/p' | awk '{ print $1 }' | xargs -I{} find -L /dev/disk/by-id/ -samefile {})
+
+echo $DISK
+
