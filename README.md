@@ -4,3 +4,5 @@ This repo contains my fumbling attempts at automating the building of Fedora on 
 
 * [ZFSBootMenu](https://github.com/zbm-dev/zfsbootmenu)
 * [rEFInd](https://www.rodsbooks.com/refind/)
+
+# *THIS IS NOT READY FOR PRODUCTION. USE AT YOUR OWN RISK*
