@@ -60,13 +60,6 @@ zpool create \
      done)
 
 zfs create \
-    -o canmount=off \
-    -o mountpoint=none \
-    -o org.zfsbootmenu:rootprefix="root=zfs:" \
-    -o org.zfsbootmenu:commandline="ro quiet" \
-    rpool/fedora
-
-zfs create \
     -o canmount=noauto \
     -o mountpoint=/ \
     -o org.zfsbootmenu:rootprefix="root=zfs:" \
