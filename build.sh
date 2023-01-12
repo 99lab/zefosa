@@ -26,7 +26,7 @@ modprobe zfs
 
 # Find and partition block devices
 
-DISK=$(lsblk -pe 252 | sed -n '/disk/p' | awk '{ print $1 }' | xargs -I{} find -L /dev/disk/by-id/ -samefile {})
+DISK=($(lsblk -pe 252 | sed -n '/disk/p' | awk '{ print $1 }' | xargs -I{} find -L /dev/disk/by-id/ -samefile {}))
 
 echo "installing to $DISK"
 
@@ -55,7 +55,6 @@ zpool create \
     -O xattr=sa \
     -O mountpoint=/ \
     rpool \
-    mirror \
    $(for i in ${DISK}; do
       printf "$i-part2 ";
      done)
